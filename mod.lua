@@ -7,3 +7,5 @@ function aumentarScore()
 end
 -- Chamando função
 aumentarScore()
+-- Mensagem final
+print("Score atual:", score)
