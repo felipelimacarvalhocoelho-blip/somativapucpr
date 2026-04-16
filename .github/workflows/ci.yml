@@ -7,6 +7,13 @@ on:
     branches: [ "main" ]
 
 jobs:
+  deploy:
+    needs: testar-mod
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Simular deploy
+      run: echo "Deploy realizado com sucesso!"
   testar-mod:
     runs-on: ubuntu-latest
 
@@ -22,3 +29,4 @@ jobs:
 
     - name: Executar script
       run: lua mod.lua
+      
