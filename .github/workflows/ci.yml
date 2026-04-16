@@ -1,0 +1,32 @@
+name: CI - Balatro Mod
+
+on:
+  push:
+    branches: [ "dev", "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    needs: testar-mod
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Simular deploy
+      run: echo "Deploy realizado com sucesso!"
+  testar-mod:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Baixar código
+      uses: actions/checkout@v4
+
+    - name: Instalar Lua
+      run: sudo apt-get install -y lua5.3
+
+    - name: Verificar arquivo
+      run: test -f mod.lua
+
+    - name: Executar script
+      run: lua mod.lua
+      
