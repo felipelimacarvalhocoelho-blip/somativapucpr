@@ -1,5 +1,6 @@
 name: CI - Balatro Mod
 
+
 on:
   push:
     branches: [ "dev", "main" ]
@@ -29,4 +30,10 @@ jobs:
 
     - name: Executar script
       run: lua mod.lua
+    - name: Build Docker image
+      run: docker build -t balatro-mod .
+      
+    - name: Run Docker container
+      run: docker run balatro-mod      
+      
       
