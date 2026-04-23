@@ -27,6 +27,9 @@ jobs:
 
     - name: Verificar arquivo
       run: test -f mod.lua
+      
+    - name: Rodar testes unitários
+      run: lua test_mod.lua
 
     - name: Executar script
       run: lua mod.lua
